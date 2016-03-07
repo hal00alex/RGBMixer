@@ -1,0 +1,38 @@
+/*
+ Mood Lamp - oscillates between colors
+ */
+ 
+// each pin corresponds to an LED color:
+int led0 = 2;
+int led1 = 3;
+int led2 = 4;
+ 
+//declare internal variables
+int brightness = 200;
+int red = 0;
+int blue = 0;
+int green = 0;
+ 
+// this routine runs each time you hit the reset button
+void setup() {                
+  // declare the relevant pins to be output
+  pinMode(led0, OUTPUT);    
+  pinMode(led1, OUTPUT);    
+  pinMode(led2, OUTPUT);    
+}
+ 
+// this routine loops indefinitely
+void loop() {
+    for (float x=0;x < PI; x = x + 0.000004){
+      red = random(250);           // calculate red brightness
+      green = random(250);    // calculate green brightness
+      blue = random(250);// calculate the blue brightness
+      analogWrite(led0, red);   // send the value to the LED
+      delay(500); 
+      analogWrite(led1, green);   // send the value to the LED
+      delay(500); 
+      analogWrite(led2, blue);   // send the value to the LED
+      delay(500); 
+    }
+ 
+}
